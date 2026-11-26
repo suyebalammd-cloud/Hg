@@ -1,0 +1,10 @@
+{
+  "name": "Happy Chick Gaming Hub",
+  "short_name": "Happy Chick",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#090d18",
+  "theme_color": "#090d18",
+  "description": "Futuristic mobile game library launcher",
+  "icons": []
+}

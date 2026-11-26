@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#090d18">
+<title>Happy Chick Gaming Hub</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brandmark">HC</div>
+    <div><div class="brand">HAPPY CHICK</div><div class="subbrand">GAMING HUB</div></div>
+    <button class="avatar" aria-label="Profile">🎮</button>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="eyebrow">YOUR NEXT ADVENTURE STARTS HERE</div>
+      <h1>PLAY<br><span>WITHOUT LIMITS.</span></h1>
+      <p>Your games. Your worlds. One hub.</p>
+      <button class="primary" id="browseBtn">EXPLORE LIBRARY <span>↗</span></button>
+      <div class="orb">HC</div>
+    </section>
+    <div class="section-head"><div><small>YOUR COLLECTION</small><h2>Game Library</h2></div><button class="add" id="addBtn">＋ Add</button></div>
+    <div class="filters" role="tablist">
+      <button class="chip active" data-filter="all">All Games</button>
+      <button class="chip" data-filter="pc">PC</button>
+      <button class="chip" data-filter="retro">Retro</button>
+      <button class="chip" data-filter="fav">♥ Saved</button>
+    </div>
+    <label class="search">⌕ <input id="search" placeholder="Search your games…"></label>
+    <section class="games" id="games"></section>
+    <div class="empty-note" id="emptyNote">Your collection is ready for games. Tap <b>＋ Add</b> to add a title.</div>
+    <section class="quick">
+      <div><small>QUICK ACCESS</small><h2>Gaming zones</h2></div>
+      <div class="zone-row">
+        <div class="zone"><span>🕹️</span><b>Arcade</b><small>Retro classics</small></div>
+        <div class="zone"><span>⚡</span><b>PC Games</b><small>Desktop library</small></div>
+        <div class="zone"><span>🏆</span><b>Favorites</b><small>Your top picks</small></div>
+      </div>
+    </section>
+  </main>
+  <nav class="bottom-nav">
+    <button class="navitem selected" data-filter="all"><span>⌂</span>Home</button>
+    <button class="navitem" data-filter="pc"><span>▣</span>PC</button>
+    <button class="navitem" data-filter="retro"><span>◈</span>Retro</button>
+    <button class="navitem" data-filter="fav"><span>♡</span>Saved</button>
+  </nav>
+</div>
+<dialog id="gameDialog">
+  <form method="dialog" id="gameForm">
+    <div class="dialog-head"><h2>Add a game</h2><button class="close" value="cancel">✕</button></div>
+    <label>Game name<input id="gameName" required placeholder="e.g. My Game"></label>
+    <label>Category<select id="gameType"><option value="pc">PC Game</option><option value="retro">Retro Game</option></select></label>
+    <label>Launch link / package (optional)<input id="gameLaunch" placeholder="https://… or app package"></label>
+    <p class="hint">This mobile hub is a library interface. Launching installed games depends on Android game/app support; PC games cannot run directly on a phone.</p>
+    <button class="primary full" id="saveGame" value="default">SAVE TO LIBRARY</button>
+  </form>
+</dialog>
+<script src="app.js"></script>
+</body>
+</html>
