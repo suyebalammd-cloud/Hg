@@ -20,11 +20,36 @@ function render(){
  });
  empty.style.display=shown.length?"none":"block";
 }
-function launch(g){
- if(!g.launch){alert("This is a library entry. Add a supported app/deep link to try launching it. PC games cannot run directly on Android.");return;}
- if(/^https?:\/\//i.test(g.launch)){location.href=g.launch;return;}
- alert("This launch target may require a compatible Android app and a valid app link/package. This starter mobile version does not install or emulate PC games.");
+
+function launch(g) {
+  if (!g.launch) {
+    alert("Please add a launch target first.");
+    return;
+  }
+
+  if (/^https?:\/\//i.test(g.launch)) {
+    window.location.href = g.launch;
+    return;
+  }
+
+  if (
+    g.launch === "org.ppsspp.ppsspp" ||
+    g.launch.toLowerCase() === "ppsspp"
+  ) {
+    const intent =
+      "intent://#Intent;" +
+      "action=android.intent.action.MAIN;" +
+      "category=android.intent.category.LAUNCHER;" +
+      "package=org.ppsspp.ppsspp;" +
+      "end";
+
+    window.location.href = intent;
+    return;
+  }
+
+  alert("Unsupported launch target.");
 }
+
 $("addBtn").onclick=()=>$("gameDialog").showModal();
 $("browseBtn").onclick=()=>$("games").scrollIntoView({behavior:"smooth"});
 $("search").addEventListener("input",render);
